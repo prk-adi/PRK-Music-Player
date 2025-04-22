@@ -1,0 +1,614 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.music-player {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.music-player:hover {
+    transform: translateY(-5px);
+}
+
+/* Animated Boy Character */
+.character-container {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    z-index: 1;
+}
+
+.boy-character {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.7);
+    animation: float 6s ease-in-out infinite;
+}
+
+.head {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #FFD700;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.eye {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+    top: 25px;
+    animation: blink 4s infinite;
+}
+
+.eye.left {
+    left: 15px;
+}
+
+.eye.right {
+    right: 15px;
+}
+
+.mouth {
+    position: absolute;
+    width: 20px;
+    height: 8px;
+    background: #FF6B6B;
+    border-radius: 0 0 10px 10px;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.body {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background: #4e54c8;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.arm, .leg {
+    position: absolute;
+    background: #4e54c8;
+    z-index: 0;
+}
+
+.arm {
+    width: 15px;
+    height: 40px;
+    top: 60px;
+    animation: swing-arm 3s infinite alternate;
+}
+
+.arm.left {
+    left: 30px;
+    transform-origin: top center;
+}
+
+.arm.right {
+    right: 30px;
+    transform-origin: top center;
+    animation-delay: 1.5s;
+}
+
+.leg {
+    width: 15px;
+    height: 50px;
+    top: 120px;
+    animation: swing-leg 2s infinite alternate;
+}
+
+.leg.left {
+    left: 45px;
+    transform-origin: top center;
+}
+
+.leg.right {
+    right: 45px;
+    transform-origin: top center;
+    animation-delay: 1s;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(0.7);
+    }
+    50% {
+        transform: translateY(-20px) scale(0.7);
+    }
+}
+
+@keyframes blink {
+    0%, 45%, 55%, 100% {
+        height: 10px;
+    }
+    48%, 52% {
+        height: 2px;
+    }
+}
+
+@keyframes swing-arm {
+    0% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes swing-leg {
+    0% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Player Elements */
+.cover-art {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: rotate 20s linear infinite;
+    animation-play-state: paused;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.cover-art:hover {
+    transform: scale(1.05);
+}
+
+.cover-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* (Rest of your existing CSS styles remain the same) */
+
+/* Add these new animations for player interactions */
+@keyframes button-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animations to elements */
+.song-info {
+    animation: slide-in 0.5s ease-out;
+}
+
+.controls button {
+    transition: all 0.3s ease;
+}
+
+.controls button:hover {
+    animation: button-pulse 0.5s ease;
+}
+
+/* (Rest of your existing CSS remains the same) */
+/* Previous styles remain the same, add these new styles */
+
+#drop-area {
+    border: 2px dashed #4e54c8;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+}
+
+#drop-area.highlight {
+    background-color: rgba(78, 84, 200, 0.1);
+    border-color: #3a3f9e;
+}
+
+.drop-instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+}
+
+.drop-instructions i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #4e54c8;
+}
+
+.drop-instructions p {
+    margin: 5px 0;
+}
+
+#file-input {
+    display: none;
+}
+
+#upload-btn {
+    background: #4e54c8;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+#upload-btn:hover {
+    background: #3a3f9e;
+}
+
+/* Add progress bar for upload feedback */
+.upload-progress {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-top: 10px;
+    display: none;
+}
+
+.upload-progress-bar {
+    height: 5px;
+    background-color: #4e54c8;
+    border-radius: 5px;
+    width: 0%;
+    transition: width 0.3s;
+}/* Enhanced Progress Bar Styles */
+.progress-container {
+    background: rgba(255, 255, 255, 0.1);
+    height: 8px;
+    border-radius: 10px;
+    margin: 25px 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.progress-container:hover {
+    transform: scaleY(1.2);
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    position: relative;
+    transition: width 0.1s linear;
+}
+
+/* Animated Glow Effect */
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.1), 
+        rgba(255, 255, 255, 0.4), 
+        rgba(255, 255, 255, 0.1));
+    border-radius: 10px;
+    animation: progress-glow 2s infinite linear;
+    opacity: 0.7;
+}
+
+/* Pulse Animation on Progress Update */
+@keyframes progress-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Glow Animation */
+@keyframes progress-glow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Time Display Styling */
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #aaa;
+    font-family: 'Courier New', monospace;
+}
+
+/* Current Time Animation */
+#current-time {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Add this to make the current time "bounce" when updating */
+.time-update {
+    animation: time-bounce 0.3s ease;
+}
+
+@keyframes time-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}/* Enhanced Playlist Styles */
+.playlist {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.playlist h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playlist ul {
+    list-style: none;
+}
+
+.playlist li {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.playlist li:last-child {
+    margin-bottom: 0;
+}
+
+.playlist li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.playlist li.playing {
+    background: linear-gradient(90deg, rgba(78, 84, 200, 0.3), transparent);
+    color: #8f94fb;
+    font-weight: 500;
+    box-shadow: 0 3px 10px rgba(78, 84, 200, 0.2);
+}
+
+.playlist li.playing::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #4e54c8;
+}
+
+.playlist li .song-duration {
+    font-size: 12px;
+    color: #aaa;
+    margin-left: 10px;
+}
+
+.playlist li.playing .song-duration {
+    color: #8f94fb;
+}
+
+/* Playlist item animation */
+@keyframes playlist-item-selected {
+    0% {
+        transform: translateX(0);
+        box-shadow: 0 0 0 rgba(78, 84, 200, 0);
+    }
+    50% {
+        transform: translateX(10px);
+        box-shadow: 0 5px 15px rgba(78, 84, 200, 0.3);
+    }
+    100% {
+        transform: translateX(0);
+        box-shadow: 0 3px 10px rgba(78, 84, 200, 0.2);
+    }
+}
+
+/* Scrollbar styling */
+.playlist::-webkit-scrollbar {
+    width: 6px;
+}
+
+.playlist::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.playlist::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+/* Footer Styles */
+.developer-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    z-index: 100;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.developer-info {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.developer-info span {
+    color: #8f94fb;
+    font-weight: 500;
+}
+
+.developer-info i {
+    color: #ff6b6b;
+    margin: 0 5px;
+}
+
+.copyright {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #777;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #aaa;
+    font-size: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-links a:nth-child(1):hover { color: #8f94fb; }
+.social-links a:nth-child(2):hover { color: #1DA1F2; }
+.social-links a:nth-child(3):hover { color: #0077B5; }
+.social-links a:nth-child(4):hover { color: #E1306C; }
+.social-links a:nth-child(5):hover { color: #D44638; }
+
+/* Adjust music player position to account for footer */
+.music-player {
+    margin-bottom: 80px; /* Space for footer */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .developer-info {
+        margin-bottom: 10px;
+    }
+    
+    .music-player {
+        margin-bottom: 120px; /* More space on mobile */
+    }
+}
