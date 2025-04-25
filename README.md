@@ -1,7 +1,7 @@
 # PRK-Music-Player
 # Music Player Web Application
 
-![Music Player Screenshot](Capture_2.PNG)
+![Music Player Screenshot](Capture5.PNG)
 
 A modern, responsive music player web application with drag-and-drop functionality, playlist management, and visual animations.
 
