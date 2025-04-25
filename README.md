@@ -7,7 +7,7 @@ A modern, responsive music player web application with drag-and-drop functionali
 
 ## Features
 
-- 🎵** Local File Playback**: Play audio files directly from your device
+- 🎵**Local File Playback**: Play audio files directly from your device
 - 📁 **Drag & Drop**: Easily add songs by dragging files into the player
 - 🔁 **Playback Controls**: Play/pause, previous/next, repeat, and shuffle
 - 📊 **Visual Progress Bar**: Animated progress bar with time indicators
