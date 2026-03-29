@@ -1,95 +1,95 @@
-# PRK-Music-Player
-# Music Player Web Application
+# PRK Music Player
 
 ![Music Player Screenshot](Capture5.PNG)
 
-A modern, responsive music player web application with drag-and-drop functionality, playlist management, and visual animations.
+A responsive retro cassette-style music player for local audio files. It runs fully in the browser and now includes playlist tools, queue management, saved songs, synced local lyrics, favorites, and session history.
 
-## Features
+## Highlights
 
-- 🎵**Local File Playback**: Play audio files directly from your device
-- 📁 **Drag & Drop**: Easily add songs by dragging files into the player
-- 🔁 **Playback Controls**: Play/pause, previous/next, repeat, and shuffle
-- 📊 **Visual Progress Bar**: Animated progress bar with time indicators
-- 🎨 **Animated UI**: Rotating album art, animated character, and smooth transitions
-- 💾 **Persistent Playlist**: Songs remain after page refresh using localStorage
-- 📱 **Fully Responsive**: Works on mobile, tablet, and desktop devices
-- 🎚️ **Volume Control**: Adjustable volume slider
-- 🎭 **Glassmorphism Design**: Modern frosted glass aesthetic
+- Retro cassette-themed UI with responsive desktop and mobile layouts
+- Drag-and-drop uploads plus `Browse Files`
+- Play, pause, previous, next, repeat, shuffle, volume, and draggable seek thumb
+- Playback speed control and sleep timer
+- Search, sorting, favorites, and playlist filtering
+- Drag-and-drop playlist reordering
+- Play-next queue with clear, remove, play-now, and drag reordering
+- Metadata parsing for common ID3-tagged files
+- Embedded album art support when available
+- Local `.lrc` lyrics loading for the currently selected song
+- Play history with `Most Played` and `Last Played` stats
+- Toast notifications and live status messages
+- Keyboard shortcuts for playback, navigation, seeking, and volume
+- IndexedDB song persistence plus `localStorage` settings persistence
 
 ## Technologies Used
 
 - HTML5
-- CSS3 (with animations and transitions)
+- CSS3
 - JavaScript (ES6)
-- Web Audio API
-- localStorage for data persistence
-- Font Awesome for icons
-- Google Fonts (Poppins)
+- `HTMLAudioElement`
+- `FileReader`, `TextDecoder`, and browser file APIs
+- IndexedDB for saved songs
+- `localStorage` for settings, lyrics, queue, and history state
+- Font Awesome
+- Google Fonts (`Poppins`)
 
-## Installation
+## Run Locally
 
-No installation required! Simply open the `index.html` file in any modern web browser.
+No build step is required.
 
-## Usage
+1. Open `index.html` in a modern browser.
+2. Upload audio files with drag-and-drop or `Browse Files`.
+3. Start playback from the playlist and explore the queue, favorites, lyrics, and sort tools.
 
-1. **Add Music**:
-   - Click "Browse Files" to select audio files
-   - Or drag and drop audio files directly into the upload area
+## How To Use
 
-2. **Playback Controls**:
-   - ▶️ Play/Pause: Toggle playback
-   - ⏮️ Previous: Go to previous song
-   - ⏭️ Next: Go to next song
-   - 🔁 Repeat: Toggle repeat mode
-   - 🔀 Shuffle: Toggle shuffle mode
+1. Add songs with `Browse Files` or by dropping audio files into the upload area.
+2. Click any song in the playlist to start playback.
+3. Use the main controls for repeat, shuffle, next or previous, volume, speed, and sleep timer.
+4. Use the playlist tools to search, sort, favorite, queue, remove, or reorder songs.
+5. Load a `.lrc` file in the Lyrics panel to show synced lyrics for the current song.
 
-3. **Volume Control**:
-   - Use the slider to adjust volume
+## Keyboard Shortcuts
 
-4. **Progress Bar**:
-   - Shows current playback position
-   - Click anywhere to seek to a specific time
+- `Space`: Play or pause
+- `ArrowRight`: Seek forward
+- `ArrowLeft`: Seek backward
+- `ArrowUp`: Increase volume
+- `ArrowDown`: Decrease volume
+- `N`: Next song
+- `P`: Previous song
+
+## Persistence
+
+- Songs are stored locally with IndexedDB and can be restored after refresh.
+- Player settings are saved in `localStorage`.
+- Favorites, queue order, loaded lyrics data, playback speed, filters, and play history are also restored locally.
 
 ## File Structure
 
+```text
+PRK-Music-Player-main/
+|-- index.html
+|-- styles.css
+|-- script.js
+|-- README.md
+|-- Capture5.PNG
 ```
-music-player/
-├── index.html          # Main HTML file
-├── styles.css          # CSS stylesheet
-└── script.js           # JavaScript functionality
-```
 
-## Customization
+## Current Limitations
 
-1. **Change Colors**:
-   - Modify the CSS variables in `styles.css` to change the color scheme
-
-2. **Add Features**:
-   - Extend the JavaScript in `script.js` to add new functionality
-
-3. **Update Character**:
-   - Customize the animated character in the CSS
+- Metadata parsing is mainly aimed at common ID3-tagged files, especially many MP3s
+- Lyrics support currently expects local `.lrc` files with time tags
+- Some audio files may not include title, artist, duration, or cover metadata
+- Saved songs and settings are local to the same browser and device
 
 ## Browser Support
 
-The music player works best in modern browsers including:
+Works best in current versions of:
+
 - Google Chrome
-- Mozilla Firefox
 - Microsoft Edge
+- Mozilla Firefox
 - Safari
 
-## Known Limitations
-
-- Audio files are stored temporarily using object URLs
-- Playlist data is browser-specific (cleared when clearing browser data)
-- Some older browsers may not support all features
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-Enjoy your music! 🎧
-Created with ❤️ by Aditya Gulshan
+Created by Aditya Gulshan.
