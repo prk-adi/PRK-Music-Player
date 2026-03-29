@@ -1,6 +1,6 @@
 # PRK Music Player
 
-![Music Player Screenshot](Capture5.PNG)
+![Music Player Screenshot](Capture.PNG)
 
 A responsive retro cassette-style music player for local audio files. It runs fully in the browser and now includes playlist tools, queue management, saved songs, synced local lyrics, favorites, and session history.
 
